@@ -27,11 +27,7 @@ h2,
 h3,
 h4,
 h5,
-h6 {
-  margin: 0;
-  padding: 0;
-}
-
+h6,
 p {
   margin: 0;
   padding: 0;
@@ -50,15 +46,15 @@ img {
   margin: 0 auto;
 }
 
-header > .container {
+header>.container {
   display: flex;
 }
 
-.header {
+.hero {
   border-bottom: 1px solid #e7e9fc;
 }
 
-.header-nav {
+.hero-nav {
   display: flex;
   align-items: center;
 }
@@ -80,7 +76,7 @@ header > .container {
   color: #2e2f42;
 }
 
-.header-menu {
+.hero-menu {
   display: flex;
   gap: 40px;
 }
@@ -93,6 +89,7 @@ header > .container {
   letter-spacing: 0.02em;
   color: #2e2f42;
   text-decoration: none;
+  transition-property: color;
 }
 
 .nav-link:hover,
@@ -100,19 +97,26 @@ header > .container {
   color: #404bbf;
 }
 
-.header-contacts {
+.nav-link:active {
+  content: '';
+  border-bottom: 4px solid #404bbf;
+  border-radius: 2px;
+  text-decoration-line: underline;
+}
+
+.hero-contacts {
   display: flex;
   font-style: normal;
   margin-left: auto;
 }
 
-.header-contacts-link {
+.hero-contacts-link {
   display: flex;
   gap: 40px;
   padding: 24px 0;
 }
 
-.contacts-team {
+.contacts-item {
   font-size: 16px;
   line-height: 1.5;
   letter-spacing: 0.02em;
@@ -121,15 +125,24 @@ header > .container {
   text-decoration: none;
 }
 
-.contacts-team:hover,
-.contacts-team:focus {
+.contacts-item:hover,
+.contacts-item:focus {
   color: #404bbf;
 }
 
 /* ================== SECTION_1 ================== */
 
 .title {
+  background-image: linear-gradient(to bottom,
+      rgba(46, 47, 66, 0.7),
+      rgba(46, 47, 66, 0.7)),
+    url(../images/bg.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   background-color: #2e2f42;
+  max-width: 1440px;
+
   text-align: center;
   padding: 188px 0;
 }
@@ -202,7 +215,24 @@ header > .container {
 }
 
 .about-item {
+
   width: calc((100% - 72px) / 4);
+}
+
+.about-svg-container {
+  width: 264px;
+  height: 112px;
+  border: 1px solid #8E8F99;
+  border-radius: 4px;
+  margin-bottom: 8px;
+  background-color: #F4F4FD;
+}
+
+.about-svg {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .about-subtitle {
@@ -265,7 +295,8 @@ header > .container {
 }
 
 .team-card-container {
-  padding: 32px 0;
+  padding: 32px 0 8px 0;
+
 }
 
 .team-card-name {
@@ -290,6 +321,32 @@ header > .container {
   color: #434455;
 }
 
+.team-svg-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 32px;
+}
+
+.team-svg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #404bbf;
+}
+
+.team-svg:first-child {
+  margin-left: 16px;
+}
+
+.team-svg:last-child {
+  margin-right: 16px;
+}
+
 /* ================== SECTION_4 ================== */
 
 .portfolio {
@@ -305,7 +362,40 @@ header > .container {
 }
 
 .portfolio-card {
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
   width: calc((100% - 48px) / 3);
+}
+
+.portfolio-card:hover {
+  box-shadow: 0px 2px 1px rgba(46, 47, 66, 0.08);
+  border: 1px #F4F4FD solid;
+}
+
+.portfolio-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 360px;
+  height: 300px;
+  overflow: hidden;
+
+  background-color: #4D5AE5;
+  color: #F4F4FD;
+  transform: translateY(100%);
+  transition: transform 250ms ease-in-out;
+}
+
+.portfolio-card:hover .portfolio-slide {
+  transform: translateY(0);
+}
+
+.portfolio-card .portfolio-slide-text {
+  position: absolute;
+  top: 40px;
+  left: 32px;
+  max-width: 296px;
 }
 
 .portfolio-list {
@@ -354,6 +444,12 @@ header > .container {
   padding: 100px 0;
 }
 
+.footer>.container {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+
 .logo-footer {
   display: inline-block;
   margin-bottom: 16px;
@@ -377,4 +473,32 @@ header > .container {
   line-height: 1.5;
   letter-spacing: 0.02em;
   color: #f4f4fd;
+}
+
+.footer-social {
+  margin-left: 120px;
+  max-width: 245px;
+}
+
+.footer-title {
+  margin-bottom: 16px;
+  color: #f4f4fd;
+}
+
+.footer-svg-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.footer-svg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #404bbf;
 }
