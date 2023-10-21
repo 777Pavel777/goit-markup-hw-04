@@ -48,10 +48,14 @@ img {
 
 header>.container {
   display: flex;
+
 }
 
 .hero {
   border-bottom: 1px solid #e7e9fc;
+  box-shadow: 0px 2px 1px rgba(46, 47, 66, 0.08),
+    0px 1px 1px rgba(46, 47, 66, 0.16),
+    0px 1px 6px rgba(46, 47, 66, 0.08);
 }
 
 .hero-nav {
@@ -81,15 +85,24 @@ header>.container {
   gap: 40px;
 }
 
+.hero-link {
+  position: relative;
+  color: #404bbf;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 .nav-link {
+
   padding: 24px 0;
   font-weight: 500;
   font-size: 16px;
   line-height: 1.5;
   letter-spacing: 0.02em;
+
   color: #2e2f42;
   text-decoration: none;
-  transition-property: color;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
 }
 
 .nav-link:hover,
@@ -97,17 +110,27 @@ header>.container {
   color: #404bbf;
 }
 
-.nav-link:active {
+.active {
+  position: relative;
+}
+
+.active::after {
   content: '';
-  border-bottom: 4px solid #404bbf;
+
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  height: 4px;
+  width: 100%;
   border-radius: 2px;
-  text-decoration-line: underline;
+  background-color: #404bbf;
 }
 
 .hero-contacts {
   display: flex;
   font-style: normal;
   margin-left: auto;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .hero-contacts-link {
@@ -143,6 +166,7 @@ header>.container {
   background-color: #2e2f42;
   max-width: 1440px;
 
+  margin: 0 auto;
   text-align: center;
   padding: 188px 0;
 }
@@ -176,6 +200,8 @@ header>.container {
   letter-spacing: 0.04em;
   color: #ffffff;
   cursor: pointer;
+
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .title-btn:hover,
@@ -220,19 +246,17 @@ header>.container {
 }
 
 .about-svg-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   width: 264px;
   height: 112px;
+
   border: 1px solid #8E8F99;
   border-radius: 4px;
   margin-bottom: 8px;
   background-color: #F4F4FD;
-}
-
-.about-svg {
-  position: relative;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
 }
 
 .about-subtitle {
@@ -285,7 +309,10 @@ header>.container {
   background-color: #ffffff;
   border-radius: 0px 0px 4px 4px;
   overflow: hidden;
-  box-shadow: 0 2px 4px -2px #333;
+
+  box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08),
+    0px 1px 1px rgba(46, 47, 66, 0.16),
+    0px 2px 1px rgba(46, 47, 66, 0.08);
 
   text-align: center;
 }
@@ -295,7 +322,7 @@ header>.container {
 }
 
 .team-card-container {
-  padding: 32px 0 8px 0;
+  padding: 32px 0;
 
 }
 
@@ -323,20 +350,25 @@ header>.container {
 
 .team-svg-container {
   display: flex;
-  justify-content: space-between;
-  margin-bottom: 32px;
+  justify-content: center;
+  gap: 24px;
 }
 
 .team-svg {
   display: flex;
   justify-content: center;
-  align-items: center;
-  cursor: pointer;
 
+  margin-bottom: 32px;
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background-color: #404bbf;
+  background-color: #4D5AE5;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.team-svg:hover {
+  cursor: pointer;
+  background-color: #404BBF;
 }
 
 .team-svg:first-child {
@@ -346,6 +378,22 @@ header>.container {
 .team-svg:last-child {
   margin-right: 16px;
 }
+
+.team-svg-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  height: 100%;
+  background-color: #4d5ae5;
+  border-radius: 50%;
+}
+
+.team-svg svg {
+  fill: #f4f4fd;
+}
+
 
 /* ================== SECTION_4 ================== */
 
@@ -359,43 +407,50 @@ header>.container {
   flex-wrap: wrap;
   column-gap: 24px;
   row-gap: 48px;
+
 }
 
 .portfolio-card {
-  position: relative;
-  cursor: pointer;
-  overflow: hidden;
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
   width: calc((100% - 48px) / 3);
 }
 
 .portfolio-card:hover {
-  box-shadow: 0px 2px 1px rgba(46, 47, 66, 0.08);
+  box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08),
+    0px 1px 1px rgba(46, 47, 66, 0.16),
+    0px 2px 1px rgba(46, 47, 66, 0.08);
+
   border: 1px #F4F4FD solid;
 }
 
 .portfolio-slide {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 360px;
-  height: 300px;
+  position: relative;
   overflow: hidden;
-
-  background-color: #4D5AE5;
-  color: #F4F4FD;
-  transform: translateY(100%);
-  transition: transform 250ms ease-in-out;
-}
-
-.portfolio-card:hover .portfolio-slide {
-  transform: translateY(0);
 }
 
 .portfolio-card .portfolio-slide-text {
   position: absolute;
-  top: 40px;
-  left: 32px;
-  max-width: 296px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 40px 32px;
+
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  transform: translateY(100%);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  background-color: #4D5AE5;
+  color: #F4F4FD;
+
+  transform: translateY(100%);
+  transition: transform 250ms ease-in-out;
+}
+
+.portfolio-card:hover .portfolio-slide-text {
+  transform: translateY(0%);
 }
 
 .portfolio-list {
@@ -446,8 +501,12 @@ header>.container {
 
 .footer>.container {
   display: flex;
-  align-items: center;
+  align-items: baseline;
   flex-direction: row;
+}
+
+.footer-box {
+  margin-right: 120px;
 }
 
 .logo-footer {
@@ -475,30 +534,48 @@ header>.container {
   color: #f4f4fd;
 }
 
-.footer-social {
-  margin-left: 120px;
-  max-width: 245px;
-}
-
 .footer-title {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+
   margin-bottom: 16px;
-  color: #f4f4fd;
+  color: #FFFFFF;
 }
 
 .footer-svg-container {
   display: flex;
-  justify-content: space-between;
   gap: 16px;
 }
 
 .footer-svg {
+  width: 40px;
+  height: 40px;
+}
+
+.footer-svg-link {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   cursor: pointer;
 
-  width: 40px;
-  height: 40px;
+  width: 100%;
+  height: 100%;
   border-radius: 50%;
-  background-color: #404bbf;
+
+  background-color: #4D5AE5;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  ;
+}
+
+.footer-svg-link:hover,
+.footer-svg-link:focus {
+  cursor: pointer;
+  background-color: #31d0aa;
+}
+
+.footer-svg svg {
+  fill: #f4f4fd;
 }
